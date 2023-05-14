@@ -1,6 +1,6 @@
 source maps.vim
 
-call plug#begin('C:/Users/Mole/AppData/Local/nvim/plugged/init.vim')
+call plug#begin('plugged/init.vim')
 
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
