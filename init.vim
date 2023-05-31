@@ -1,12 +1,18 @@
-source maps.vim
+source $HOME/.config/nvim/maps.vim
 
 call plug#begin('plugged/init.vim')
 
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-call plug#end()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'jiangmiao/auto-pairs'
+
+let g:airline_theme='lucius'
 colorscheme tokyonight
 
 set encoding=utf-8
@@ -43,7 +49,7 @@ set number
 
 set ignorecase
 set smartcase
-set showmode
+set noshowmode
 
 set hlsearch
 
