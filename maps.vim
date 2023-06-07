@@ -29,3 +29,6 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Toggle line numbers with <F3>
 nnoremap <F3> :set invnumber<CR>
+
+" Coc suggestion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
