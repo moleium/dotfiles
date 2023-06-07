@@ -23,3 +23,9 @@ inoremap JK <esc>
 " Quick edit init.vim
 nnoremap <silent>,init :tabe ~/.config/nvim/init.vim<cr>
 nnoremap <silent>,so :so ~/.config/nvim/init.vim<cr>:echo 'sourced'<cr>
+
+" Open NERDTree file explorer with <Ctrl-n>
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" Toggle line numbers with <F3>
+nnoremap <F3> :set invnumber<CR>
