@@ -1,0 +1,10 @@
+require('plugins')
+
+require('config.options')
+require('config.colorscheme')
+require('config.lualine')
+require('config.indent')
+require('config.treesitter')
+require('config.telescope')
+require('config.cmp')
+require('config.lsp')
