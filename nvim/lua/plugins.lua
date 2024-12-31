@@ -29,4 +29,24 @@ require('packer').startup(function(use)
      'hrsh7th/cmp-vsnip'
     }
   })
+
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = 'nvim-tree/nvim-web-devicons'
+  }
+
+  use 'lewis6991/gitsigns.nvim'
+  use 'numToStr/Comment.nvim'
+  use 'folke/which-key.nvim'
+  use 'stevearc/dressing.nvim'
+  
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "*",
+    requires = 'nvim-tree/nvim-web-devicons'
+  }
+
+  use 'nvim-treesitter/nvim-treesitter-context'
+  use 'petertriho/nvim-scrollbar'
+  use "lukas-reineke/virt-column.nvim"
 end)

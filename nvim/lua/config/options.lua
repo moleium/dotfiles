@@ -1,7 +1,5 @@
 local opt = vim.opt
 
-vim.g.mapleader = " "
-
 -- Basic Options
 opt.encoding = 'utf-8'
 opt.fileencoding = 'utf-8'
@@ -21,12 +19,12 @@ opt.smartindent = true
 opt.backspace = { 'indent', 'eol', 'start' }
 
 opt.mouse = 'a'
-opt.cursorline = true
+opt.cursorline = false
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 
 opt.timeoutlen = 300
-opt.updatetime = 300
+opt.updatetime = 250
 opt.hidden = true
 
 opt.list = true
@@ -44,9 +42,15 @@ opt.foldexpr = 'nvim_treesitter#foldexpr()'
 opt.foldlevel = 99
 
 opt.ruler = true
-opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
+opt.completeopt = { "menu", "menuone", "noselect" }
 
 opt.termguicolors = true
 opt.background = 'dark'
 
 opt.fillchars:append({ eob = ' ' })
+
+opt.cmdheight = 0
+opt.pumheight = 10
+opt.signcolumn = "yes"
+opt.splitbelow = true
+opt.splitright = true
