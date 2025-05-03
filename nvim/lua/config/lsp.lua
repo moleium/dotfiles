@@ -1,6 +1,15 @@
 local nvim_lsp = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+-- Show diagnostics as virtual text
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
 nvim_lsp.clangd.setup{
   cmd = { "clangd" },
   filetypes = { "c", "cpp", "objc", "objcpp" },
