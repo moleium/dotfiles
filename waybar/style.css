@@ -1,0 +1,291 @@
+@import "mocha.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Segoe UI", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition-duration: 0.3s;
+    border: none;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text;
+    padding: 0;
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3);
+    margin: 0 6px;
+}
+
+window#waybar.empty {
+    background-color: alpha(@base, 0.8);
+}
+
+#workspaces {
+    background: transparent;
+    margin: 4px 0;
+    padding: 0 6px;
+}
+
+#workspaces button {
+    background: alpha(@surface0, 0.5);
+    color: @text;
+    border-radius: 8px;
+    margin: 0 2px;
+    padding: 0 6px;
+    transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.68);
+    box-shadow: inset 0 -2px transparent;
+}
+
+#workspaces button.active {
+    background: linear-gradient(45deg, @blue, @lavender);
+    color: @base;
+    box-shadow: inset 0 -2px @blue;
+    padding: 0 12px;
+}
+
+#workspaces button:hover {
+    background: alpha(@surface0, 0.8);
+    box-shadow: inset 0 -2px @mauve;
+}
+
+#battery,
+#cpu,
+#memory,
+#disk,
+#network,
+#pulseaudio,
+#custom-updates,
+#temperature,
+#backlight,
+#custom-weather,
+#tray,
+.modules-right .custom-power,
+.modules-left .custom-launcher {
+    background: alpha(@surface0, 0.7);
+    color: @text;
+    padding: 2px 12px;
+    margin: 6px 3px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px alpha(@surface1, 0.5);
+    transition: all 0.3s ease;
+}
+
+.custom-launcher {
+    background: linear-gradient(45deg, @blue, @lavender);
+    color: @base;
+    font-size: 18px;
+    border-radius: 50%;
+    margin: 6px 8px 6px 6px;
+    min-width: 26px;
+    min-height: 26px;
+    padding: 0 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.custom-launcher:hover {
+    background: linear-gradient(45deg, @lavender, @blue);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+#window {
+    background: transparent;
+    color: @text;
+    margin-left: 10px;
+    padding: 0 10px;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+#clock {
+    background: linear-gradient(45deg, alpha(@surface0, 0.7), alpha(@surface1, 0.7));
+    color: @text;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 12px;
+    margin: 6px 10px;
+    padding: 0 16px;
+    box-shadow: inset 0 0 0 1px alpha(@surface1, 0.5);
+}
+
+#clock:hover {
+    background: linear-gradient(45deg, alpha(@surface1, 0.7), alpha(@surface0, 0.7));
+    box-shadow: 0 0 8px alpha(@blue, 0.5);
+}
+
+#battery {
+    background: linear-gradient(45deg, alpha(@green, 0.2), alpha(@surface0, 0.7));
+    color: @green;
+}
+
+#battery.warning {
+    background: linear-gradient(45deg, alpha(@yellow, 0.2), alpha(@surface0, 0.7));
+    color: @yellow;
+}
+
+#battery.critical {
+    background: linear-gradient(45deg, alpha(@red, 0.2), alpha(@surface0, 0.7));
+    color: @red;
+    animation: blink 1s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background: linear-gradient(45deg, alpha(@red, 0.4), alpha(@surface0, 0.8));
+        color: alpha(@red, 0.5);
+    }
+}
+
+#battery.charging {
+    background: linear-gradient(45deg, alpha(@green, 0.2), alpha(@surface0, 0.7));
+    color: @green;
+}
+
+#cpu {
+    background: linear-gradient(45deg, alpha(@sky, 0.2), alpha(@surface0, 0.7));
+    color: @sky;
+}
+
+#cpu.warning {
+    background: linear-gradient(45deg, alpha(@yellow, 0.2), alpha(@surface0, 0.7));
+    color: @yellow;
+}
+
+#cpu.critical {
+    background: linear-gradient(45deg, alpha(@red, 0.2), alpha(@surface0, 0.7));
+    color: @red;
+}
+
+#memory {
+    background: linear-gradient(45deg, alpha(@sapphire, 0.2), alpha(@surface0, 0.7));
+    color: @sapphire;
+}
+
+#memory.warning {
+    background: linear-gradient(45deg, alpha(@yellow, 0.2), alpha(@surface0, 0.7));
+    color: @yellow;
+}
+
+#memory.critical {
+    background: linear-gradient(45deg, alpha(@red, 0.2), alpha(@surface0, 0.7));
+    color: @red;
+}
+
+#network {
+    background: linear-gradient(45deg, alpha(@lavender, 0.2), alpha(@surface0, 0.7));
+    color: @lavender;
+}
+
+#network.disconnected {
+    background: linear-gradient(45deg, alpha(@overlay0, 0.2), alpha(@surface0, 0.7));
+    color: @overlay0;
+}
+
+#pulseaudio {
+    background: linear-gradient(45deg, alpha(@pink, 0.2), alpha(@surface0, 0.7));
+    color: @pink;
+}
+
+#pulseaudio.muted {
+    background: linear-gradient(45deg, alpha(@overlay0, 0.2), alpha(@surface0, 0.7));
+    color: @overlay0;
+}
+
+#custom-weather {
+    background: linear-gradient(45deg, alpha(@teal, 0.2), alpha(@surface0, 0.7));
+    color: @teal;
+}
+
+#custom-updates {
+    background: linear-gradient(45deg, alpha(@peach, 0.2), alpha(@surface0, 0.7));
+    color: @peach;
+}
+
+.custom-power {
+    color: @red;
+    background: linear-gradient(45deg, alpha(@red, 0.2), alpha(@surface0, 0.7));
+    font-size: 16px;
+    border-radius: 50%;
+    margin: 6px 6px 6px 3px;
+    min-width: 26px;
+    min-height: 26px;
+    padding: 0 8px;
+}
+
+.custom-power:hover {
+    background: linear-gradient(45deg, alpha(@red, 0.4), alpha(@surface0, 0.8));
+    box-shadow: 0 0 8px alpha(@red, 0.5);
+}
+
+#tray {
+    background: linear-gradient(45deg, alpha(@surface1, 0.5), alpha(@surface0, 0.7));
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: alpha(@red, 0.2);
+    border-radius: 6px;
+}
+
+tooltip {
+    background: @mantle;
+    border: 2px solid @blue;
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: @text;
+    padding: 6px;
+}
+
+calendar {
+    background: @mantle;
+    border: 2px solid @blue;
+    border-radius: 12px;
+    color: @text;
+    padding: 8px;
+}
+
+calendar:selected {
+    background: @blue;
+    color: @base;
+    border-radius: 8px;
+}
+
+calendar.header {
+    color: @blue;
+    font-weight: bold;
+}
+
+calendar.button {
+    color: @blue;
+}
+
+calendar.highlight {
+    color: @mauve;
+    font-weight: bold;
+}
+
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-updates:hover,
+#custom-weather:hover {
+    background: alpha(@surface1, 0.8);
+    box-shadow: 0 0 8px alpha(@overlay0, 0.5);
+}
+
+@keyframes pop {
+}
+
+@keyframes startup {
+}
+
+window#waybar {
+    animation: startup 0.5s ease-out;
+}
